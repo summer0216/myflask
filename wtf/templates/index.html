@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    </div>
+    <form class="form" role="form" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name() }}
+        {% for error in form.errors.name %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br>
+        <input type="submit" name="submit" value="Submit">
+
+    </form>
+{% endblock %}
