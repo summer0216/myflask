@@ -8,7 +8,7 @@
     </div>
     <form class="form" role="form" method="post">
         {{ form.hidden_tag() }}
-        {{ form.name.label }} {{ form.name() }}
+        {{ form.name.label }} <input type="text" name="name" id="name">
         {% for error in form.errors.name %}
             <span style="color: red;">[{{ error }}]</span>
         {% endfor %}<br>
