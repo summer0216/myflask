@@ -1,4 +1,4 @@
-from flask import Flask, render_template,redirect
+from flask import Flask, render_template,request
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.wtf import Form
 from wtforms import StringField, SubmitField
@@ -21,8 +21,12 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
         form.name.data = ''
-    return render_template('index.html', form=form, name=name)
+    return render_template('index.html',form=form,name=name)
 
+@app.route('/load/', methods=['GET', 'POST'])
+def load():
+    print(request.form["name"])
+    return "<div>617</div>"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8001)
