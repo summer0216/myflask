@@ -1,0 +1,12 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+    {% for k,v in user_info.items() %}
+        {% if k=="name" %}
+            name is : {{ v }}<br>
+        {% elif k=="age" %}
+            age is : {{ v }}<br>
+        {% elif k== "sex" %}
+            sex is :{{ v }}<br>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
