@@ -9,18 +9,20 @@
 <div id="demo"></div>
 </body>
 <script type="text/javascript">
+    var jsonstr='{{ json_str|safe }}';
+    console.log(jsonstr);
     $.ajax({
         url:"/getstr/",
         type:"GET",
         success:function(data){
-            alert(data)
+            console.log(data)
         }
     })
-     $.ajax({
+    $.ajax({
         url:"/getjson/",
         type:"GET",
         success:function(data){
-            alert(data)
+            console.log(data)
         }
     })
 </script>
