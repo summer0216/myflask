@@ -3,7 +3,7 @@
  */
 define(['app'], function (app) {
     'use strict';
-    app.controller('C_2', function ($scope) {
+    app.controller('ctr2', function ($scope) {
     });
     console.log('c2执行完成！')
 });

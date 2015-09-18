@@ -12,5 +12,15 @@ def hello_world():
     return render_template('index.html',jsonstr=jsonstr)
 
 
+@app.route('/tpl3/')
+def hello_world1():
+    return render_template('tpl3.html')
+
+
+@app.route('/tpl4/')
+def hello_world2():
+    return render_template('tpl4.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

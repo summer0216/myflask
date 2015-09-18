@@ -6,17 +6,20 @@
     <script src="/static/js/lib/require.js"></script>
     <script src="/static/js/lib/require-config.js"></script>
 </head>
-<body>
+<body ng-controller="ctr_app">
 {% include 'tpl1.html' %}
 {% include 'tpl2.html' %}
-
+<div ng-include="url"></div>
+<button ng-click="toggleUrl()">切换</button>
 <script>
-    var jsonData=JSON.parse('{{ jsonstr|safe }}');
-    console.log('服务器传来的数据，设为全局变量jsonData:',jsonData);
-        require(['angular','C_1','C_2'], function (angular) {
-            console.log('开始启动app!');
-            angular.bootstrap(document,['app'])
-        })
+    var appData={
+        list:JSON.parse('{{ jsonstr|safe }}')
+    };
+    console.log('服务器传来的数据，设为全局命名空间appData:',appData);
+    require(['angular','ctr_app','ctr1','ctr2','ctr3'], function (angular) {
+        console.log('开始启动app!');
+        angular.bootstrap(document,['app'])
+    })
 </script>
 </body>
 </html>
