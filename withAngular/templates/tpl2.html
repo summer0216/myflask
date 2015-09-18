@@ -1,0 +1,11 @@
+<h3>模板2</h3>
+{% raw %}
+<div ng-controller="C_2">
+    <input type="text" ng-model="aaa">{{ aaa }}
+</div>
+{% endraw %}
+
+<br>
+这是用jinja渲染的：{{ jsonstr }}
+<br>
+可以使用raw和endraw来停止渲染和恢复渲染

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/static/js/lib/require.js"></script>
+    <script src="/static/js/lib/require-config.js"></script>
+</head>
+<body>
+{% include 'tpl1.html' %}
+{% include 'tpl2.html' %}
+
+<script>
+    var jsonData=JSON.parse('{{ jsonstr|safe }}');
+    console.log('服务器传来的数据，设为全局变量jsonData:',jsonData);
+        require(['angular','C_1','C_2'], function (angular) {
+            console.log('开始启动app!');
+            angular.bootstrap(document,['app'])
+        })
+</script>
+</body>
+</html>
