@@ -13,7 +13,7 @@
 <button ng-click="toggleUrl()">切换</button>
 <script>
     var appData={
-        list:JSON.parse('{{ jsonstr|safe }}')
+        list:{{ jsonstr|safe }}
     };
     console.log('服务器传来的数据，设为全局命名空间appData:',appData);
     require(['angular','ctr_app','ctr1','ctr2','ctr3'], function (angular) {
