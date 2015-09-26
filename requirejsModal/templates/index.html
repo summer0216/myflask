@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/lib/require.js"></script>
+    <script src="/static/js/lib/require-config.js"></script>
+</head>
+<body>
+<button onclick="updatePro('45','项目一','balabalbala……')">更新项目</button>
+<script>
+    require(['update_pro'], function (update_pro) {
+        updatePro= function (pro_no,pro_name,pro_description) {
+            update_pro.run(pro_no,pro_name,pro_description);
+        };
+    });
+</script>
+</body>
+</html>

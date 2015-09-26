@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="updatePro('45','项目一','balabalbala……')">更新项目</button>
+<!-- 更新项目开始 -->
+<div class="modal fade" id="update_pro" role="dialog" tabindex="-1" aria-hidden="true" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" id="project_modal_dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel_project">更新项目</h4>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    <form  name="project_edit"  role="form" >
+                        <input type="hidden" id="pro_no"name="pro_no">
+                        <div class="form-group">
+                            <label  class="control-label">项目名称</label>
+                            <input type="text" id="pro_name" name="pro_name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label">项目描述</label>
+                            <input type="text" id="pro_description" name="pro_description" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" id="submit_edit_project" class="btn btn-primary"
+                       onclick="return false;" value="保存项目">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 更新项目结束 -->
+
+
+<script>
+    function updatePro (pro_no,pro_name,pro_description) {
+        $("#pro_no").val(pro_no);
+        $("#pro_name").val(pro_name);
+        $("#pro_description").val(pro_description);
+        $("#update_pro").modal();
+    };
+
+    $("#submit_edit_project").click(function () {
+        var formdata = new FormData(document.forms.namedItem("project_edit"));
+        $.ajax({
+            type: "POST",
+            url: "/update/project/",
+            data: formdata,
+            cache: false,
+            contentType: false,    //告诉jQuery不要去设置Content-Type请求头
+            processData: false,    //告诉jQuery不要去处理发送的数据
+            success: function (data) {
+                $("#update_pro").modal("hide");
+                alert(data.message);
+            },
+            error: function (xhr) {
+                alert("Search Fail:" + xhr.statusText + xhr.status);
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>
