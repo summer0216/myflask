@@ -9,8 +9,7 @@
 </head>
 <body>
 
-<p id="pTip">开始上传</p>
-<progress value="0" max="100" id="proDownFile"></progress>
+
 <form action="">
     <input type="file" name="file" id="files">
 </form>
@@ -21,7 +20,7 @@
 
     var init = function (stsToken) {
         var ossUpload = new OssUpload({
-            bucket: 'jingyun-test',
+            bucket: 'jingyun-upload',
             // 根据你的 oss 实例所在地区选择填入
             // 杭州：http://oss-cn-hangzhou.aliyuncs.com
             // 北京：http://oss-cn-beijing.aliyuncs.com
