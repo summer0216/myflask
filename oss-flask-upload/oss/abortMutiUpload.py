@@ -3,6 +3,6 @@
 from ossInit import oss
 
 # 使用upload id取消分块上传事件
-res =oss.cancel_upload('jingyun-test', 'wine-qqintl.zip', '3DC02690E53747F49B7FD9D55F8D3B06')
+res =oss.cancel_upload('jingyun-upload', '2015-S06084_R2.fq.gz', '42415CC93945486DB9D01759D93C1467')
 print "%s\n%s" % (res.status, res.read())
 
