@@ -6,19 +6,31 @@
 </head>
 <body>
 <ul>
-    <li><a href="/add">创建用户</a></li>
-    <li><a href="/get">获取用户信息</a></li>
-    <li><a href="/delete">删除用户</a></li>
-    <li><a href="/create_access">创建accesskey</a></li>
-    <li><a href="/del_access">删除accesskey</a></li>
-    <li><a href="/create_policy">创建策略</a></li>
-    <li><a href="/bind">绑定策略到用户</a></li>
+    <li>用户操作
+        <ul>
+            <li><a href="/add">创建用户alice</a></li>
+            <li><a href="/get">获取用户alice信息</a></li>
+            <li><a href="/delete">删除用户alice</a></li>
+        </ul>
+    </li>
+    <li>accesskey操作
+        <ul>
+            <li><a href="/create_access">创建alice随机accesskey</a></li>
+            <li>
+                <a  href="/del_access">删除accesskey</a>
+            </li>
+        </ul>
+    </li>
+
+    <li>策略操作
+        <ul>
+            <li><a href="/create_policy">创建策略</a></li>
+            <li><a href="/bind">绑定策略到用户</a></li>
+            <li><a href="/detach">解绑策略</a></li>
+            <li><a href="/del_policy">删除策略</a></li>
+        </ul>
+    </li>
 </ul>
-
-
-
-
-
 
 </body>
 </html>

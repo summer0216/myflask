@@ -2,7 +2,8 @@
 from flask import Flask, render_template, json
 from aliyunsdkcore import client
 from aliyunsdkram.request.v20150501 import CreateUserRequest, GetUserRequest, DeleteUserRequest, CreateAccessKeyRequest, \
-    CreatePolicyRequest, AttachPolicyToUserRequest,DeleteAccessKeyRequest
+    CreatePolicyRequest, AttachPolicyToUserRequest, DeleteAccessKeyRequest, DeletePolicyRequest, \
+    DetachPolicyFromUserRequest
 
 app = Flask(__name__)
 
@@ -163,8 +164,6 @@ def create_policy():
 
         request.set_PolicyDocument(policy_document)
 
-        request.get_PolicyName()
-
         # 发起请求，并得到response
         response = clt.do_action(request)
 
@@ -190,6 +189,57 @@ def bind():
         request.set_PolicyType('Custom')
         request.set_PolicyName('alice_policy')
         request.set_UserName('alice')
+
+        # 发起请求，并得到response
+        response = clt.do_action(request)
+
+        print response
+        return response
+    except Exception, e:
+        print(e.args)
+        error_message = str(e.args)
+        return error_message
+
+
+@app.route('/detach/')
+def detach():
+    try:
+        # 构建一个 Aliyun Client, 用于发起请求
+        # 构建Aliyun Client时需要设置AccessKeyId和AccessKeySevcret
+        # RAM是Global Service, API入口位于杭州, 这里Region填写"cn-hangzhou"
+        clt = client.AcsClient('QFmrMPB18qNx9KYc', 'IuAdh4qL9noDf0UnMOO977HSgZSc0E', 'cn-hangzhou')
+
+        request = DetachPolicyFromUserRequest.DetachPolicyFromUserRequest()
+
+        request.set_PolicyType('Custom')
+        request.set_PolicyName('alice_policy')
+        request.set_UserName('alice')
+
+
+        # 发起请求，并得到response
+        response = clt.do_action(request)
+
+        print response
+        return response
+    except Exception, e:
+        print(e.args)
+        error_message = str(e.args)
+        return error_message
+
+
+@app.route('/del_policy/')
+def del_policy():
+    try:
+        # 构建一个 Aliyun Client, 用于发起请求
+        # 构建Aliyun Client时需要设置AccessKeyId和AccessKeySevcret
+        # RAM是Global Service, API入口位于杭州, 这里Region填写"cn-hangzhou"
+        clt = client.AcsClient('QFmrMPB18qNx9KYc', 'IuAdh4qL9noDf0UnMOO977HSgZSc0E', 'cn-hangzhou')
+
+        # 构造"CreateUser"请求
+        request = DeletePolicyRequest.DeletePolicyRequest()
+
+        request.set_PolicyName('alice_policy')
+
 
         # 发起请求，并得到response
         response = clt.do_action(request)
