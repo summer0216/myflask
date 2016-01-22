@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-from flask import Flask,render_template,jsonify
+from flask import Flask, render_template, jsonify
 from aliyunsdkcore import client
 from aliyunsdksts.request.v20150401 import AssumeRoleRequest
 import xmltodict
@@ -11,6 +11,11 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template('demo.html')
+
+
+@app.route('/browser/')
+def browser():
+    return render_template('upload-browser.html')
 
 
 @app.route('/token', methods=['GET', 'POST'])
@@ -30,7 +35,7 @@ def get_token():
     # 发起请求，并得到response
     response = clt.do_action(request)
 
-    dict=xmltodict.parse(response)
+    dict = xmltodict.parse(response)
 
     return jsonify(dict['AssumeRoleResponse'])
 

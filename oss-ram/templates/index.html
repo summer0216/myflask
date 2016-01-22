@@ -8,16 +8,20 @@
 <ul>
     <li>用户操作
         <ul>
-            <li><a href="/add">创建用户alice</a></li>
-            <li><a href="/get">获取用户alice信息</a></li>
-            <li><a href="/delete">删除用户alice</a></li>
+            <li><a href="/add">创建用户</a></li>
+            <li><a href="/get">获取用户信息</a></li>
+            <li><a href="/delete">删除用户</a></li>
         </ul>
     </li>
     <li>accesskey操作
         <ul>
-            <li><a href="/create_access">创建alice随机accesskey</a></li>
+            <li><a href="/create_access">创建随机accesskey</a></li>
+            <li><a href="/list_access">列出用户accesskey</a></li>
             <li>
-                <a  href="/del_access">删除accesskey</a>
+                <form action="/del_access/" method="post">
+                    <input type="text" name="access_id">
+                    <button>删除accesskey</button>
+                </form>
             </li>
         </ul>
     </li>
@@ -30,6 +34,7 @@
             <li><a href="/del_policy">删除策略</a></li>
         </ul>
     </li>
+    <li><a href="/addFolder">创建文件夹</a></li>
 </ul>
 
 </body>
