@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+dict is {{ dict|typeFilter}}
+<hr>
+ dict | json_dumps is{{ dict|json_dumps |typeFilter}}
+<hr>
+you can use json_dumps filter to send dict to js,remember to add safe filter,<br>
+press f12 to test it
+</body>
+<script>
+    //you can use json_dumps filter to send dict to js,remember to add safe filter
+    console.log({{ dict |json_dumps|safe}})
+</script>
+</html>
