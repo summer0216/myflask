@@ -5,4 +5,4 @@ jinja2-filter tutorial code example
 
     python app.py
 
-open localhost:5000 in yur browser
+open localhost:5000 in your browser
